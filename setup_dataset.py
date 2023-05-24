@@ -12,7 +12,7 @@ from sqlalchemy.orm import sessionmaker
 import pandas as pd
 from tqdm import tqdm
 
-from models import BehaviorData, MemberData, Base
+from models import BehaviorData, MemberData
 
 dotenv.load_dotenv()
 data_dir_path = Path(os.getenv("DATA_DIR_PATH"))
@@ -95,26 +95,36 @@ def get_behavior_df(file_name: [str, Path]) -> pd.DataFrame:
 
 def df_to_db(model_cls, df: pd.DataFrame):
     """Load a dataframe into a database table using the given model class."""
+    if not hasattr(df_to_db, 'static_attr'):
+        df_to_db.cls_existingpks = dict()
+
     chunk_size = 10_000  # Number of records to add in each chunk
     primary_key = model_cls.__table__.primary_key.columns.keys()[0]  # Get the primary key column name
+    primary_key_attr = getattr(model_cls, primary_key)  # Get the primary key attribute of the model class
+
+    # Collect existing primary keys from the database
+    if model_cls not in df_to_db.cls_existingpks:
+        existing_primary_keys = set()  # Keep track of existing primary keys in the database
+        for existing_record in session.query(primary_key_attr).all():
+            existing_primary_keys.add(existing_record[0])
+        df_to_db.cls_existingpks[model_cls] = existing_primary_keys
+
     records = []
     for index, record in enumerate(tqdm(df.to_dict(orient='records'))):
-        # Check if the record already exists in the database
         primary_key_value = record[primary_key]
-        existing_record = session.query(model_cls).filter_by(**{primary_key: primary_key_value}).first()
-        if existing_record:
+        if primary_key_value in df_to_db.cls_existingpks[model_cls]:
             continue
 
         records.append(model_cls(**record))
 
         if len(records) % chunk_size == 0:
-            session.add_all(records)
+            session.bulk_save_objects(records)
             session.commit()
             records = []  # Reset the records list after committing the chunk
 
     # Add any remaining records
     if records:
-        session.add_all(records)
+        session.bulk_save_objects(records)
         session.commit()
 
 
@@ -122,10 +132,14 @@ def main():
     print('import MemberData.csv to database')
     df_to_db(MemberData, get_member_df())
 
-    behavior_file_names = os.listdir(data_dir_path / 'BehaviorData')
+    behavior_file_names = sorted(f for f in os.listdir(data_dir_path / 'BehaviorData') if ".csv" in f)
+    num = 0
     for file_name in behavior_file_names:
         print(f'import {file_name} to database')
-        df_to_db(BehaviorData, get_behavior_df(file_name))
+        df = get_behavior_df(file_name)
+        df['id'] = df.index + num
+        num += len(df)
+        df_to_db(BehaviorData, df)
 
 
 if __name__ == '__main__':

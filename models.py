@@ -60,11 +60,6 @@ class BehaviorData(Base):
     PageType = Column(String)
     EventTime = Column(DateTime)
 
-    # Define primary key constraint
-    __table_args__ = (
-        PrimaryKeyConstraint('id'),
-    )
-
     # Define the relationship to MemberData
     MemberData = relationship('MemberData', foreign_keys='BehaviorData.ShopMemberId')
 

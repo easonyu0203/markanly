@@ -1,6 +1,7 @@
 """
 In this file we load csv file and store it to sqlite database
 """
+from typing import Iterator
 
 import dotenv
 import os
@@ -53,9 +54,14 @@ def get_member_df() -> pd.DataFrame:
     return df
 
 
-def get_behavior_df(file_name: [str, Path]) -> pd.DataFrame:
-    """load behavior data from csv file and return a dataframe
-    param: file_name: str or Path object
+def get_behavior_df_iter(file_name: [str, Path]) -> Iterator[pd.DataFrame]:
+    """Load behavior data from a CSV file and return a DataFrame iterator.
+
+    Args:
+        file_name: str or Path object, the name of the file to load.
+
+    Yields:
+        pd.DataFrame: Each chunk of the loaded DataFrame.
     """
     global data_dir_path
     data_types = {
@@ -64,7 +70,7 @@ def get_behavior_df(file_name: [str, Path]) -> pd.DataFrame:
         'FullvisitorId': str,
         'DeviceId': str,
         'ShopMemberId': str,
-        'HitTime': int,
+        'HitTime': float,
         'Language': str,
         'CountryAliasCode': str,
         'Version': str,
@@ -85,17 +91,22 @@ def get_behavior_df(file_name: [str, Path]) -> pd.DataFrame:
         'ContentName': str,
         'ContentId': str,
         'PageType': str,
-        'EventTime': int
+        'EventTime': float
     }
-    df = pd.read_csv(data_dir_path / 'BehaviorData' / file_name, dtype=data_types)
-    df['HitTime'] = pd.to_datetime(df['HitTime'], unit='ms')
-    df['EventTime'] = pd.to_datetime(df['EventTime'], unit='ms')
-    return df
+    chunk_size = 100_000  # Number of rows per chunk
+
+    for chunk in pd.read_csv(data_dir_path / 'BehaviorData' / file_name, chunksize=chunk_size, dtype=data_types):
+        chunk = chunk.dropna(subset=['HitTime', 'EventTime'])
+        chunk['HitTime'] = chunk['HitTime'].astype(int)
+        chunk['EventTime'] = chunk['EventTime'].astype(int)
+        chunk['HitTime'] = pd.to_datetime(chunk['HitTime'], unit='ms')
+        chunk['EventTime'] = pd.to_datetime(chunk['EventTime'], unit='ms')
+        yield chunk
 
 
 def df_to_db(model_cls, df: pd.DataFrame):
     """Load a dataframe into a database table using the given model class."""
-    if not hasattr(df_to_db, 'static_attr'):
+    if not hasattr(df_to_db, 'cls_existingpks'):
         df_to_db.cls_existingpks = dict()
 
     chunk_size = 10_000  # Number of records to add in each chunk
@@ -104,10 +115,12 @@ def df_to_db(model_cls, df: pd.DataFrame):
 
     # Collect existing primary keys from the database
     if model_cls not in df_to_db.cls_existingpks:
+        print('create skip list..')
         existing_primary_keys = set()  # Keep track of existing primary keys in the database
         for existing_record in session.query(primary_key_attr).all():
             existing_primary_keys.add(existing_record[0])
         df_to_db.cls_existingpks[model_cls] = existing_primary_keys
+        print('skip list created')
 
     records = []
     for index, record in enumerate(tqdm(df.to_dict(orient='records'))):
@@ -136,10 +149,10 @@ def main():
     num = 0
     for file_name in behavior_file_names:
         print(f'import {file_name} to database')
-        df = get_behavior_df(file_name)
-        df['id'] = df.index + num
-        num += len(df)
-        df_to_db(BehaviorData, df)
+        for df_chunk in get_behavior_df_iter(file_name):
+            df_chunk['id'] = df_chunk.index + num
+            num += len(df_chunk)
+            df_to_db(BehaviorData, df_chunk)
 
 
 if __name__ == '__main__':

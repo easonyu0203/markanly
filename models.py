@@ -1,5 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime,\
-    PrimaryKeyConstraint, ForeignKey, create_engine
+from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey, create_engine
 from sqlalchemy.orm import declarative_base, relationship
 import dotenv
 import os

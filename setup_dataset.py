@@ -9,10 +9,11 @@ from pathlib import Path
 from datetime import datetime
 import sqlite3
 import pandas as pd
+from sqlalchemy import Index
 from tqdm import tqdm
 
-from models import BehaviorData, MemberData
-from utils.db_utils import create_db_session
+from models import BehaviorData, MemberData, Base
+from utils.db_utils import create_db_session, engine
 
 dotenv.load_dotenv()
 data_dir_path = Path(os.getenv("DATA_DIR_PATH"))

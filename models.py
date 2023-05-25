@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey, create_engine, BigInteger
+from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey, create_engine, BigInteger, Index
 from sqlalchemy.orm import declarative_base, relationship
 import dotenv
 import os
@@ -61,6 +61,11 @@ class BehaviorData(Base):
 
     # Define the relationship to MemberData
     MemberData = relationship('MemberData', foreign_keys='BehaviorData.ShopMemberId')
+
+    # Define index for HitTime column
+    idx_HitTime = Index('idx_HitTime', 'HitTime')
+    idx_FullvisitorId = Index('idx_FullvisitorId', 'FullvisitorId')
+    idx_ShopMemberId = Index('idx_ShopMemberId', 'ShopMemberId')
 
 
 # create tables

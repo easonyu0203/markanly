@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc83ca59-ad83-41b3-add3-8c3d2051e1d0" name="Changes" comment="feat: generate dataset framework finish!">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/research.ipynb" afterDir="false" />
+    <list default="true" id="fc83ca59-ad83-41b3-add3-8c3d2051e1d0" name="Changes" comment="feat: rewrite behavior data research">
+      <change afterPath="$PROJECT_DIR$/main.py.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +15,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jupyter Notebook" />
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -123,7 +121,7 @@
       <workItem from="1684949638248" duration="5000" />
       <workItem from="1684953540692" duration="580000" />
       <workItem from="1684991844568" duration="1975000" />
-      <workItem from="1684995588340" duration="17505000" />
+      <workItem from="1684995588340" duration="17764000" />
     </task>
     <task id="LOCAL-00001" summary="fix: fix logic of df to db">
       <created>1684949068681</created>
@@ -160,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685034428465</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: rewrite behavior data research">
+      <created>1685036075935</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1685036075935</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,7 +177,8 @@
     <MESSAGE value="feat: developing dataset generator, currently have implementedget seesions" />
     <MESSAGE value="feat: dataset finish!" />
     <MESSAGE value="feat: generate dataset framework finish!" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: generate dataset framework finish!" />
+    <MESSAGE value="feat: rewrite behavior data research" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: rewrite behavior data research" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

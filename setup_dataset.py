@@ -8,12 +8,11 @@ import os
 from pathlib import Path
 from datetime import datetime
 import sqlite3
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 import pandas as pd
 from tqdm import tqdm
 
 from models import BehaviorData, MemberData
+from utils.db_utils import create_db_session
 
 dotenv.load_dotenv()
 data_dir_path = Path(os.getenv("DATA_DIR_PATH"))
@@ -22,10 +21,8 @@ assert data_dir_path.exists(), f"please set DATA_DIR_PATH in .env file."
 # create database
 _ = sqlite3.connect('database.db')
 
-# Define the SQLAlchemy engine and session
-engine = create_engine('sqlite:///database.db')
-Session = sessionmaker(bind=engine)
-session = Session()
+# Define the SQLAlchemy session
+session = create_db_session()
 
 
 def get_member_df() -> pd.DataFrame:
@@ -93,7 +90,7 @@ def get_behavior_df_iter(file_name: [str, Path]) -> Iterator[pd.DataFrame]:
         'PageType': str,
         'EventTime': float
     }
-    chunk_size = 100_000  # Number of rows per chunk
+    chunk_size = 1_000_000  # Number of rows per chunk
 
     for chunk in pd.read_csv(data_dir_path / 'BehaviorData' / file_name, chunksize=chunk_size, dtype=data_types):
         chunk = chunk.dropna(subset=['HitTime', 'EventTime'])
@@ -109,7 +106,7 @@ def df_to_db(model_cls, df: pd.DataFrame):
     if not hasattr(df_to_db, 'cls_existingpks'):
         df_to_db.cls_existingpks = dict()
 
-    chunk_size = 10_000  # Number of records to add in each chunk
+    chunk_size = 50_000  # Number of records to add in each chunk
     primary_key = model_cls.__table__.primary_key.columns.keys()[0]  # Get the primary key column name
     primary_key_attr = getattr(model_cls, primary_key)  # Get the primary key attribute of the model class
 
@@ -149,10 +146,12 @@ def main():
     num = 0
     for file_name in behavior_file_names:
         print(f'import {file_name} to database')
+        this_num = 0
         for df_chunk in get_behavior_df_iter(file_name):
-            df_chunk['id'] = df_chunk.index + num
-            num += len(df_chunk)
+            df_chunk['id'] = (df_chunk.index + num)
+            this_num += len(df_chunk)
             df_to_db(BehaviorData, df_chunk)
+        num += this_num
 
 
 if __name__ == '__main__':

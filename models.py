@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey, create_engine
+from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey, create_engine, BigInteger
 from sqlalchemy.orm import declarative_base, relationship
 import dotenv
 import os
@@ -30,7 +30,7 @@ class BehaviorData(Base):
     __tablename__ = 'BehaviorData'
 
     # Define columns
-    id = Column(Integer, primary_key=True)
+    id = Column(BigInteger, primary_key=True)
     Tunnel = Column(String)
     Device = Column(String)
     FullvisitorId = Column(String)

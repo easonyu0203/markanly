@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey, create_engine, BigInteger, Index
 from sqlalchemy.orm import declarative_base, relationship
 import dotenv
@@ -57,7 +59,7 @@ class BehaviorData(Base):
     ContentName = Column(String)
     ContentId = Column(String)
     PageType = Column(String)
-    EventTime = Column(DateTime)
+    EventTime: datetime = Column(DateTime)
 
     # Define the relationship to MemberData
     MemberData = relationship('MemberData', foreign_keys='BehaviorData.ShopMemberId')

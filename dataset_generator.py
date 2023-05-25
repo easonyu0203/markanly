@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from typing import Iterator, List, Tuple
 
 import numpy as np
-from sqlalchemy import and_, func
+from sqlalchemy import and_
 from tqdm import tqdm
 
 from models import BehaviorData

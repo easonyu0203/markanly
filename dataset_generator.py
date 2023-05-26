@@ -57,6 +57,8 @@ class DatasetGenerator:
     def _is_wanted_session(self, session: list[BehaviorData]) -> bool:
         """TODO: Check if this session is wanted.
         for given session, determine whether it is wanted or not.
+        Args:
+            session: list of BehaviorData within this session
         Returns:
             is_wanted_session: bool
         """
@@ -73,8 +75,14 @@ class DatasetGenerator:
         return True
 
     def _transform(self, sub_session: List[BehaviorData]) -> np.ndarray:
-        """TODO: Transform sub-session to feature vector.
-        the return value should be a 1-d numpy array."""
+        """
+        TODO: Transform sub-session to feature vector.
+        the return value should be a 1-d numpy array.
+        Args:
+            sub_session: list of BehaviorData within this sub-session
+        Returns:
+            feature_vector: np.ndarray with shape (feature_dim,)
+        """
         # here is an example implementation
 
         # feature 1: session duration
@@ -89,8 +97,16 @@ class DatasetGenerator:
         return np.array([session_duration, num_actions, num_unique_pages])
 
     def _label(self, sub_session: List[BehaviorData], session: List[BehaviorData]) -> float:
-        """TODO: Label sub-session.
-        the return value should be a float number which represents how many minute this session have lasted."""
+        """
+        TODO: Label sub-session.
+        the return value should be a float number which represents how many minute this session have lasted.
+        sub_session is a part of session, session is a whole session.
+        Args:
+            sub_session: list of BehaviorData within this sub-session
+            session: list of BehaviorData within this session
+        Returns:
+            label: float number which represents of the label of this sub-session
+        """
         # here is an example implementation
 
         # label: session duration
@@ -127,6 +143,6 @@ class DatasetGenerator:
 
 if __name__ == '__main__':
     # example of how to use
-    dataset_generator = DatasetGenerator(start_date=datetime(2019, 1, 1), end_date=datetime(2019, 1, 2))
+    dataset_generator = DatasetGenerator(start_date=datetime(2019, 1, 1), end_date=datetime(2019, 2, 1))
     X, Y = dataset_generator.generate_dataset()
     print(X.shape, Y.shape)

@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc83ca59-ad83-41b3-add3-8c3d2051e1d0" name="Changes" comment="feat: rewrite behavior data research">
-      <change afterPath="$PROJECT_DIR$/main.py.ipynb" afterDir="false" />
+    <list default="true" id="fc83ca59-ad83-41b3-add3-8c3d2051e1d0" name="Changes" comment="feat: add main.ipynb">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0e2addb6-b159-4aa3-8446-80b03819c4e0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0e2addb6-b159-4aa3-8446-80b03819c4e0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_generator.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,26 +36,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/Ethan/Developer/Projects/College/大四下/數據分析/期末/markanly",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/Ethan/Developer/Projects/College/大四下/數據分析/期末/markanly&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Python.dataset_generator">
     <configuration name="dataset_generator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="markanly" />
@@ -121,7 +123,9 @@
       <workItem from="1684949638248" duration="5000" />
       <workItem from="1684953540692" duration="580000" />
       <workItem from="1684991844568" duration="1975000" />
-      <workItem from="1684995588340" duration="17764000" />
+      <workItem from="1684995588340" duration="18794000" />
+      <workItem from="1685040119031" duration="3000" />
+      <workItem from="1685077046408" duration="636000" />
     </task>
     <task id="LOCAL-00001" summary="fix: fix logic of df to db">
       <created>1684949068681</created>
@@ -165,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685036075935</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: add main.ipynb">
+      <created>1685036333533</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685036333533</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,7 +189,8 @@
     <MESSAGE value="feat: dataset finish!" />
     <MESSAGE value="feat: generate dataset framework finish!" />
     <MESSAGE value="feat: rewrite behavior data research" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: rewrite behavior data research" />
+    <MESSAGE value="feat: add main.ipynb" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add main.ipynb" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

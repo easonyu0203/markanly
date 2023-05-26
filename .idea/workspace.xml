@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc83ca59-ad83-41b3-add3-8c3d2051e1d0" name="Changes" comment="docs: add docs for functino">
-      <change afterPath="$PROJECT_DIR$/dataset/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset/feature_transformer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dataset/session_filterer.py" afterDir="false" />
+    <list default="true" id="fc83ca59-ad83-41b3-add3-8c3d2051e1d0" name="Changes" comment="refactor: refactor dataset generation process to files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/dataset_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/feature_transformer.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/feature_transformer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/main.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/Labeler.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +130,7 @@
       <workItem from="1684991844568" duration="1975000" />
       <workItem from="1684995588340" duration="18794000" />
       <workItem from="1685040119031" duration="3000" />
-      <workItem from="1685077046408" duration="2993000" />
+      <workItem from="1685077046408" duration="3450000" />
     </task>
     <task id="LOCAL-00001" summary="fix: fix logic of df to db">
       <created>1684949068681</created>
@@ -192,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685077695203</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="refactor: refactor dataset generation process to files">
+      <created>1685083436438</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685083436438</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,7 +210,8 @@
     <MESSAGE value="feat: rewrite behavior data research" />
     <MESSAGE value="feat: add main.ipynb" />
     <MESSAGE value="docs: add docs for functino" />
-    <option name="LAST_COMMIT_MESSAGE" value="docs: add docs for functino" />
+    <MESSAGE value="refactor: refactor dataset generation process to files" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: refactor dataset generation process to files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

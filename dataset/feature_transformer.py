@@ -43,4 +43,12 @@ class FeatureTransformer(IFeatureTransformer):
         # feature 3: number of unique pages
         num_unique_pages = len(set([s.PageType for s in sub_session if s.PageType is not None]))
 
-        return np.array([session_duration, num_actions, num_unique_pages])
+        # feature 4: is a member?
+        is_member = 0 if session[0].MemberData is None else 1
+
+        return np.array([
+            session_duration,
+            num_actions,
+            num_unique_pages,
+            is_member
+        ])

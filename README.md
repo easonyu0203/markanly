@@ -14,5 +14,5 @@ CONNECT_STR=sqlite:///database.db
 ```
 load data into database:
 ```bash
-python setup_dataset.py
+python setup_database.py
 ```

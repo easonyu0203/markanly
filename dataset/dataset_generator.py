@@ -5,7 +5,7 @@ import numpy as np
 from sqlalchemy import and_
 from tqdm import tqdm
 
-from dataset.Labeler import ILabeler
+from dataset.labeler import ILabeler
 from dataset.feature_transformer import IFeatureTransformer
 from dataset.session_filterer import ISessionFilterer
 from models import BehaviorData

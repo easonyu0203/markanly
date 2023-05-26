@@ -62,7 +62,7 @@ class BehaviorData(Base):
     EventTime: datetime = Column(DateTime)
 
     # Define the relationship to MemberData
-    MemberData: MemberData = relationship('MemberData', foreign_keys='BehaviorData.ShopMemberId')
+    MemberData = relationship('MemberData', foreign_keys='BehaviorData.ShopMemberId')
 
     # Define index for HitTime column
     idx_HitTime = Index('idx_HitTime', 'HitTime')

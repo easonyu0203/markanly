@@ -40,4 +40,8 @@ class SessionFilterer(ISessionFilterer):
         if len(session) <= 1:
             return False
 
+        # only within 1 min we don't want
+        if (session[-1].EventTime - session[0].EventTime).total_seconds() <= 60:
+            return False
+
         return True

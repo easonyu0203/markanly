@@ -41,7 +41,7 @@ class FeatureTransformer(IFeatureTransformer):
         num_actions = len(sub_session)
 
         # feature 3: number of unique pages
-        num_unique_pages = len(set([s.PageType for s in sub_session if s.PageType is not None]))
+        num_unique_pages = len(set([action.PageType for action in sub_session if action.PageType is not None]))
 
         # feature 4: is a member?
         is_member = 0 if session[0].MemberData is None else 1

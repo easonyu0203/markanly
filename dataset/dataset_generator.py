@@ -59,6 +59,7 @@ class DatasetGenerator:
 
                 # feature transformation
                 x = self._feature_transformer.process(sub_session, session)
+                # labeling
                 y = self._labeler.process(sub_session, session)
                 X.append(x)
                 Y.append(y)

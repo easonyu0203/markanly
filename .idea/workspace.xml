@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc83ca59-ad83-41b3-add3-8c3d2051e1d0" name="Changes" comment="feat: add main.ipynb">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0e2addb6-b159-4aa3-8446-80b03819c4e0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/0e2addb6-b159-4aa3-8446-80b03819c4e0.xml" afterDir="false" />
+    <list default="true" id="fc83ca59-ad83-41b3-add3-8c3d2051e1d0" name="Changes" comment="docs: add docs for functino">
+      <change afterPath="$PROJECT_DIR$/dataset/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/feature_transformer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/session_filterer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/dataset_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/main.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/dataset/Labeler.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="Jupyter Notebook" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -56,6 +60,11 @@
     ]
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Dataset" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.dataset_generator">
     <configuration name="dataset_generator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="markanly" />
@@ -70,7 +79,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dataset_generator.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Dataset/dataset_generator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -125,7 +134,7 @@
       <workItem from="1684991844568" duration="1975000" />
       <workItem from="1684995588340" duration="18794000" />
       <workItem from="1685040119031" duration="3000" />
-      <workItem from="1685077046408" duration="636000" />
+      <workItem from="1685077046408" duration="2993000" />
     </task>
     <task id="LOCAL-00001" summary="fix: fix logic of df to db">
       <created>1684949068681</created>
@@ -176,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685036333533</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="docs: add docs for functino">
+      <created>1685077695203</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1685077695203</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +206,8 @@
     <MESSAGE value="feat: generate dataset framework finish!" />
     <MESSAGE value="feat: rewrite behavior data research" />
     <MESSAGE value="feat: add main.ipynb" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add main.ipynb" />
+    <MESSAGE value="docs: add docs for functino" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: add docs for functino" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

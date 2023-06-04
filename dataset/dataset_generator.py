@@ -50,7 +50,7 @@ class DatasetGenerator:
         X, Y = [], []
         for session in self._get_sessions():
             # sub-session
-            for i in range(1, len(session)):
+            for i in range(1, len(session) + 1):
                 sub_session = session[:i]
 
                 # filter unwanted sessions

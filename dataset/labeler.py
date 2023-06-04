@@ -22,7 +22,6 @@ class Labeler(ILabeler):
 
     def process(self, sub_session: List[BehaviorData], session: List[BehaviorData]) -> float:
         """
-        TODO: Label sub-session.
         the return value should be a float number which represents of the label of this sub-session
         sub_session is a part of session, session is a whole session.
         Args:

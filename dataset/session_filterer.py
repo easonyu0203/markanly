@@ -20,12 +20,10 @@ class ISessionFilterer(Protocol):
 class SessionFilterer(ISessionFilterer):
 
     def __init__(self):
-        """TODO: you can add some field here if you need."""
         ...
 
     def process(self, sub_session: List[BehaviorData], session: list[BehaviorData]) -> bool:
         """
-        TODO: Check if this session is wanted.
         for given session, determine whether it is wanted or not.
         sub_session is a part of session, session is a whole session.
         Args:
